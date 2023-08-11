@@ -1,11 +1,9 @@
-/* styles.css */
-
 body {
     font-family: Arial, sans-serif;
 }
 
 nav {
-    background-color: #f8f9fa;
+    background-color: #e91e63; /* pink */
     padding: 20px;
 }
 
@@ -48,7 +46,7 @@ nav {
 }
 
 .page-footer {
-    background-color: #f8f9fa;
+    background-color: #e91e63; /* pink */
     text-align: center;
     padding: 10px;
 }
