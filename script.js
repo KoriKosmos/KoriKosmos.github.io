@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', (event) => {
+document.addEventListener('DOMContentLoaded', () => {
     const usernameElements = document.querySelectorAll('.username');
     const username = 'KoriKosmos';
 
