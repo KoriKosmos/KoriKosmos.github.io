@@ -3,57 +3,45 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>KoriKosmos</title>
-    <meta name="description" content="Your Description Here">
+    <meta name="description" content="Kori's Info! x3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 </head>
 
 <body>
 <header>
     <nav>
-        <a href="#" class="brand-logo username"></a>
-        <span class="card-title username"></span>
-        <ul class="nav-items">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">Projects</a></li>
-        </ul>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo center username"></a>
+        </div>
     </nav>
 </header>
 
-<main>
-    <div class="profile-card">
-        <img class="profile-image" alt="KoriKosmos's profile picture" src="ShubaDrawn.jpg">
+<main class="container">
+    <div class="card">
+        <div class="card-image">
+            <img class="profile-image" alt="KoriKosmos's profile picture" src="CalliGen.png">
+            <span class="card-title username"></span>
+        </div>
         <div class="card-content">
-            <div class="card-header">
-                <span class="card-title" id="username"></span>
-                <span class="card-subtitle">More like Based Attorney</span>
-            </div>
-            <div class="extra-info">
-                <div class="profile-point"><span><i class="material-icons">location_city</i> London</span></div>
-                <div class="profile-point"><span><i class="material-icons">contact_mail</i> <a href="mailto:your-email">kori@korikosmos.moe</a></span></div>
-            </div>
+            <p>More like Based Attorney</p>
+            <p><i class="material-icons">location_city</i> London</p>
+            <p><i class="material-icons">contact_mail</i> <a href="mailto:your-email">kori@korikosmos.moe</a></p>
         </div>
         <div class="card-action">
-            <table>
-                <tr>
-                    <td>GitHub</td>
-                    <td class="right"><a href="https://github.com/KoriKosmos">KoriKosmos</a></td>
-                </tr>
-                <tr>
-                    <td>LinkedIn</td>
-                    <td class="right"><a href="https://www.linkedin.com/in/maan-meher-449094a0/">Your LinkedIn</a></td>
-                </tr>
-            </table>
+            <a href="https://github.com/KoriKosmos">GitHub</a>
+            <a href="your-linkedin-url">LinkedIn</a>
         </div>
     </div>
 </main>
 
 <footer class="page-footer">
-    <div class="footer-copyright">
-        <div class="container">© <span id="copyright"></span> </div>
+    <div class="container">
+        <div class="center-align">© <span id="copyright"></span></div>
     </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="script.js" defer></script>
 </body>
 </html>
