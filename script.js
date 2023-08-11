@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const backgroundImageElement = document.body; // Select the body or a specific element as the background
 
     // Fetch a random artwork of "Oozora Subaru" using the Donmai API
-    const apiUrl = 'https://danbooru.donmai.us/posts.json?tags=oozora_subaru';
+    const apiUrl = 'https://danbooru.donmai.us/posts.json?tags=oozora_subaru+-rating%3Aexplicit+-rating%3Asuggestive';
     try {
         const response = await fetch(apiUrl);
         const artworks = await response.json();
