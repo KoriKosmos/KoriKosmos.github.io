@@ -61,3 +61,11 @@ nav {
     padding: 10px;
     color: white; /* Adjust text color as needed */
 }
+
+/* Add this CSS rule to styles.css */
+.album-art {
+    display: block; /* Ensures the image is treated as a block-level element */
+    margin: 0 auto; /* Center the image horizontally */
+    max-width: 100%; /* Ensure the image doesn't exceed its parent's width */
+    height: auto; /* Automatically adjust the height while maintaining aspect ratio */
+}
