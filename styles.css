@@ -69,3 +69,18 @@ nav {
     max-width: 100%; /* Ensure the image doesn't exceed its parent's width */
     height: auto; /* Automatically adjust the height while maintaining aspect ratio */
 }
+
+.song-name {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #FF5733; /* Set the color for the track name */
+}
+
+.artist-name {
+    text-align: center;
+    font-size: 18px;
+    font-family: "Helvetica Neue", sans-serif;
+    color: #4CAF50; /* Set the color for the artist name */
+}

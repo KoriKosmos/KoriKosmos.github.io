@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const apiKey = '894fc1acd1282ecebf7dabbf1eb17012';
-    const username = 'ZaneJulien'; // Replace with your Last.fm username
+    const username = 'ZaneJulien';
     const apiUrl = `https://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=${username}&api_key=${apiKey}&format=json`;
 
     try {
@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         const albumArtElement = document.querySelector('.album-art');
         const songNameElement = document.querySelector('.song-name');
+        const artistNameElement = document.querySelector('.artist-name'); // New line
         const leftArrow = document.querySelector('.nav-arrow.left');
         const rightArrow = document.querySelector('.nav-arrow.right');
 
@@ -32,7 +33,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                     const albumArtUrl = albumData.album.image.find(image => image.size === 'extralarge')['#text'];
 
                     albumArtElement.src = albumArtUrl;
-                    songNameElement.textContent = `${track.name} by ${artistName}`;
+                    songNameElement.textContent = track.name; // Only set the track name
+                    artistNameElement.textContent = artistName; // Set the artist name
                 });
             }
         }
