@@ -13,6 +13,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     const currentYear = new Date().getFullYear();
     copyrightElement.textContent = `${currentYear} ${username}`;
 
+    /*
+
     // New code to fetch a random artwork and credit the artist
     const backgroundImageElement = document.body; // Select the body or a specific element as the background
 
@@ -64,4 +66,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     } catch (error) {
         console.error('Error fetching artwork:', error);
     }
+
+
+       */
 });
