@@ -7,35 +7,50 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch(apiUrl);
         const data = await response.json();
 
+        // Check if the recent tracks data is available
+        if (!data.recenttracks || !Array.isArray(data.recenttracks.track)) {
+            console.error('Recent tracks data is not available:', data);
+            return; // Exit the function if the data structure is not as expected
+        }
+
         const recentTracks = data.recenttracks.track;
 
         const albumArtElement = document.querySelector('.album-art');
         const songNameElement = document.querySelector('.song-name');
-        const artistNameElement = document.querySelector('.artist-name'); // New line
+        const artistNameElement = document.querySelector('.artist-name');
         const leftArrow = document.querySelector('.nav-arrow.left');
         const rightArrow = document.querySelector('.nav-arrow.right');
 
         let currentIndex = 0;
 
-        displayTrack(currentIndex);
+        if (recentTracks.length > 0) {
+            displayTrack(currentIndex);
 
-        leftArrow.addEventListener('click', () => navigateTrack(-1));
-        rightArrow.addEventListener('click', () => navigateTrack(1));
+            leftArrow.addEventListener('click', () => navigateTrack(-1));
+            rightArrow.addEventListener('click', () => navigateTrack(1));
+        } else {
+            console.log('No recent tracks found for the user.');
+        }
 
-        function displayTrack(index) {
+        async function displayTrack(index) {
             const track = recentTracks[index];
             if (track) {
                 const artistName = track.artist['#text'];
                 const albumName = track.album['#text'];
 
-                // Fetch album details using album.getInfo method
-                fetchAlbumInfo(artistName, albumName).then(albumData => {
-                    const albumArtUrl = albumData.album.image.find(image => image.size === 'extralarge')['#text'];
-
-                    albumArtElement.src = albumArtUrl;
-                    songNameElement.textContent = track.name; // Only set the track name
-                    artistNameElement.textContent = artistName; // Set the artist name
-                });
+                try {
+                    const albumData = await fetchAlbumInfo(artistName, albumName);
+                    if (albumData.album && Array.isArray(albumData.album.image)) {
+                        const albumArtUrl = albumData.album.image.find(image => image.size === 'extralarge')['#text'];
+                        albumArtElement.src = albumArtUrl ? albumArtUrl : 'path/to/default/image.jpg'; // Fallback to default image if URL is empty
+                        songNameElement.textContent = track.name;
+                        artistNameElement.textContent = artistName;
+                    } else {
+                        console.error('Album data is not available:', albumData);
+                    }
+                } catch (error) {
+                    console.error('Error fetching album info:', error);
+                }
             }
         }
 
