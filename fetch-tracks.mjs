@@ -5,10 +5,13 @@ import 'dotenv/config';
 const apiKey = process.env.LASTFM_API_KEY;
 const username = process.env.LASTFM_USERNAME;
 
+console.log('Using API Key:', apiKey.length, 'characters');
+console.log('Using Username:', username);
+
 fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${apiKey}&format=json`)
     .then(response => response.json())
     .then(data => {
-        console.log('API Response:', JSON.stringify(data, null, 2)); // Log the entire API response
+        console.log('API Response:', JSON.stringify(data, null, 2));
         if (data && data.recenttracks && data.recenttracks.track) {
             const tracks = data.recenttracks.track;
             let filteredTracks = [];
