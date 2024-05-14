@@ -20,6 +20,9 @@ jobs:
           node-version: 'lts/*' # Use the latest LTS version of Node.js
 
       - name: Print environment variables
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USERNAME: ${{ secrets.LASTFM_USERNAME }}
         run: |
           echo "LASTFM_API_KEY: ${LASTFM_API_KEY}"
           echo "LASTFM_USERNAME: ${LASTFM_USERNAME}"
@@ -28,15 +31,18 @@ jobs:
         run: npm install
 
       - name: Fetch latest tracks
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USERNAME: ${{ secrets.LASTFM_USERNAME }}
         run: node fetch-tracks.mjs
 
       - name: Commit and push changes
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_USERNAME: ${{ secrets.LASTFM_USERNAME }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add -A
           git commit -m 'Update latest tracks' || echo "No changes to commit"
           git push origin redesign
-        env:
-          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
-          LASTFM_USERNAME: ${{ secrets.LASTFM_USERNAME }}
