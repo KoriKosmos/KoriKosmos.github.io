@@ -5,6 +5,16 @@ import 'dotenv/config';
 const apiKey = process.env.LASTFM_API_KEY;
 const username = process.env.LASTFM_USERNAME;
 
+if (!apiKey) {
+    console.error('Error: LASTFM_API_KEY is not set');
+    process.exit(1);
+}
+
+if (!username) {
+    console.error('Error: LASTFM_USERNAME is not set');
+    process.exit(1);
+}
+
 console.log('Using API Key:', apiKey.length, 'characters');
 console.log('Using Username:', username);
 
