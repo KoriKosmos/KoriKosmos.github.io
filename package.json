@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "node-fetch": "^3.3.2"
+  },
+  "name": "korikosmos.github.io",
+  "description": "A Jekyll version of the \"Forty\" theme by [HTML5 UP](https://html5up.net/).",
+  "version": "1.0.0",
+  "main": "fetch-tracks.mjs",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

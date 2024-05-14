@@ -14,5 +14,9 @@ You can find the source code for Jekyll at GitHub:
 [jekyll][jekyll-organization] /
 [jekyll](https://github.com/jekyll/jekyll)
 
+## Latest Tracks
+{% include latest-tracks.html %}
+
+*Note: If the latest tracks do not load, please disable your ad blocker for this site.*
 
 [jekyll-organization]: https://github.com/jekyll
