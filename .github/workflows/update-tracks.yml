@@ -17,7 +17,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: 'lts/*' # Use the latest LTS version of Node.js
 
       - name: Install dependencies
         run: npm install
@@ -29,8 +29,8 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add _includes/latest-tracks.html
-          git commit -m 'Update latest tracks'
+          git add -A
+          git commit -m 'Update latest tracks' || echo "No changes to commit"
           git push origin redesign
         env:
           LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
