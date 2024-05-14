@@ -36,11 +36,19 @@ fetch(`https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${use
                 }
             }
 
-            let trackList = '<ul>';
+            let trackList = '<div class="track-carousel-wrapper"><div class="track-carousel">';
             filteredTracks.forEach(track => {
-                trackList += `<li>${track.artist['#text']} - ${track.name}</li>`;
+                trackList += `
+                    <div class="track">
+                        <img src="${track.image[2]['#text']}" alt="Album Art">
+                        <p><strong>${track.name}</strong></p>
+                        <p>${track.artist['#text']} - ${track.album['#text']}</p>
+                    </div>`;
             });
-            trackList += '</ul>';
+            trackList += '</div>';
+            trackList += `
+                <button class="carousel-btn left">&lt;</button>
+                <button class="carousel-btn right">&gt;</button></div>`;
 
             fs.writeFileSync('./_includes/latest-tracks.html', trackList);
         } else {

@@ -78,3 +78,46 @@
 	@import 'layout/footer';
 	@import 'layout/wrapper';
 	@import 'layout/menu';
+
+// Add this at the end of your main.scss
+
+.track-carousel-wrapper {
+	position: relative;
+}
+
+.track-carousel {
+	display: flex;
+	transition: transform 0.5s ease-in-out;
+	width: 100%;
+}
+
+.track {
+	min-width: 100%;
+	box-sizing: border-box;
+	text-align: center;
+}
+
+.track img {
+	max-width: 100%;
+	height: auto;
+}
+
+.carousel-btn {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	background-color: rgba(0, 0, 0, 0.5);
+	border: none;
+	color: white;
+	font-size: 2rem;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.carousel-btn.left {
+	left: 10px;
+}
+
+.carousel-btn.right {
+	right: 10px;
+}
